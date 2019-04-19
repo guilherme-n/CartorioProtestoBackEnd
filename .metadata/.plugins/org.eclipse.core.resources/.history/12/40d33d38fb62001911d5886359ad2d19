@@ -37,10 +37,10 @@ public class LoginBean implements Login {
 	}
 
 	@Override
-	public User login(String login, String senha) {
-		String jpql = ("select u from User u where u.login= :pLogin and u.senha= :pSenha");
+	public User login(String nome, String senha) {
+		String jpql = ("select u from User u where u.nome= :pNome and u.senha= :pSenha");
         Query query = entityManager.createQuery(jpql);
-        query.setParameter("pLogin", login);
+        query.setParameter("pNome", nome);
         query.setParameter("pSenha", senha);
         User usuario = (User)query.getSingleResult();
 		return usuario;

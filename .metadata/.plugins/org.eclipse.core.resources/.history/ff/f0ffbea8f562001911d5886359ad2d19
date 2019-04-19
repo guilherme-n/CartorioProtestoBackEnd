@@ -18,6 +18,7 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.xml.bind.DatatypeConverter;
 
@@ -83,12 +84,10 @@ public class UserEndpoint {
 	          
 	        String nome = jo.get("nome").toString();
 	        String senha = jo.get("senha").toString();
-	        String login = jo.get("login").toString();
-	        String email = jo.get("email").toString();
 			
 			Login loginbean = ClientUtility.getLoginBean();
 			
-			User user = loginbean.cadastrarUsuario(nome, PasswordUtils.digestPassword(senha), login, email);
+			User user = loginbean.cadastrarUsuario(nome, PasswordUtils.digestPassword(senha));
 			if (user != null)
 				return Response.ok(user).build();
 		} catch (NamingException | ParseException e) {

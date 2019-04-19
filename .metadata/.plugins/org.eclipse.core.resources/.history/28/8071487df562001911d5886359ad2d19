@@ -9,7 +9,7 @@ import br.edu.ifpe.pdsc_modelo.entidades.User;
 @Local
 public interface Login {
  
-      User cadastrarUsuario(String nome, String senha, String login, String email);
+      User cadastrarUsuario(String nome, String senha, String login, String senha);
       
       User login(String nome, String senha);
       
