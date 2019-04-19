@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;br.edu.ifpe.pdsc_modelo.ejb.Titulo&apos; to &apos;TituloBean&apos;&#x0A;- Original project: &apos;PDSCEJB&apos;&#x0A;- Original element: &apos;br.edu.ifpe.pdsc_modelo.ejb.Titulo&apos;&#x0A;- Renamed element: &apos;br.edu.ifpe.pdsc_modelo.ejb.TituloBean&apos;&#x0A;- Update references to refactored element&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;Titulo&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/ejbModule&lt;br.edu.ifpe.pdsc_modelo.ejb{Titulo.java[Titulo" matchStrategy="1" name="TituloBean" qualified="false" references="true" similarDeclarations="false" stamp="1554252005343" textual="false" version="1.0"/>
+</session>

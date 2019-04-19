@@ -1,0 +1,7 @@
+/home/professorhenrique/eclipse-workspace/pdsc/PDSCREST/src/br/edu/ifpe/pdsc_modelo/filter/JWTTokenNeededFilter.java
+/home/professorhenrique/eclipse-workspace/pdsc/PDSCREST/src/br/edu/ifpe/pdsc_modelo/rest/UserEndpoint.java
+/home/professorhenrique/eclipse-workspace/pdsc/PDSCREST/src/br/edu/ifpe/pdsc_modelo/rest/ClientUtility.java
+/home/professorhenrique/eclipse-workspace/pdsc/PDSCREST/src/br/edu/ifpe/pdsc_modelo/filter/JWTTokenNeeded.java
+/home/professorhenrique/eclipse-workspace/pdsc/PDSCREST/src/br/edu/ifpe/pdsc_modelo/util/PasswordUtils.java
+/home/professorhenrique/eclipse-workspace/pdsc/PDSCREST/src/br/edu/ifpe/pdsc_modelo/rest/EchoEndpoint.java
+/home/professorhenrique/eclipse-workspace/pdsc/PDSCREST/src/br/edu/ifpe/pdsc_modelo/rest/ApplicationConfig.java

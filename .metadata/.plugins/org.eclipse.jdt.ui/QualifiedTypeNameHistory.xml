@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="br.edu.ifpe.pdsc_modelo.util.ClientUtility"/>
+<fullyQualifiedTypeName name="br.edu.ifpe.pdsc_modelo.ejb.TituloBean"/>
+<fullyQualifiedTypeName name="br.edu.ifpe.pdsc_modelo.entidades.Titulo"/>
+<fullyQualifiedTypeName name="br.edu.ifpe.pdsc_modelo.filter.CorsFilter"/>
+<fullyQualifiedTypeName name="javax.ws.rs.container.ContainerResponseContext"/>
+<fullyQualifiedTypeName name="javax.ws.rs.container.ContainerRequestContext"/>
+<fullyQualifiedTypeName name="javax.ws.rs.ext.Provider"/>
+<fullyQualifiedTypeName name="javax.ws.rs.container.ContainerResponseFilter"/>
+<fullyQualifiedTypeName name="io.jsonwebtoken.io.IOException"/>
+<fullyQualifiedTypeName name="java.io.IOException"/>
+<fullyQualifiedTypeName name="org.json.simple.parser.JSONParser"/>
+<fullyQualifiedTypeName name="javax.ws.rs.core.MediaType"/>
+</qualifiedTypeNameHistroy>
