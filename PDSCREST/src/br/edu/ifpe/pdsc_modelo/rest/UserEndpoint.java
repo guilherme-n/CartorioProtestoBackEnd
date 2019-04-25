@@ -1,7 +1,6 @@
 package br.edu.ifpe.pdsc_modelo.rest;
 
 import static javax.ws.rs.core.HttpHeaders.AUTHORIZATION;
-import static javax.ws.rs.core.MediaType.APPLICATION_FORM_URLENCODED;
 import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
 import static javax.ws.rs.core.Response.Status.FORBIDDEN;
 import static javax.ws.rs.core.Response.Status.NOT_FOUND;
@@ -12,7 +11,6 @@ import java.util.List;
 import javax.naming.NamingException;
 import javax.transaction.Transactional;
 import javax.ws.rs.Consumes;
-import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -30,9 +28,7 @@ import io.jsonwebtoken.SignatureAlgorithm;
 
 import org.json.simple.JSONObject; 
 import org.json.simple.parser.*; 
-/**
- * @author Antonio Goncalves http://www.antoniogoncalves.org --
- */
+
 @Path("/users")
 @Produces(APPLICATION_JSON)
 @Consumes(APPLICATION_JSON)
@@ -41,13 +37,17 @@ public class UserEndpoint {
 
 	@POST
 	@Path("/login")
-	@Consumes(APPLICATION_FORM_URLENCODED)
-	public Response authenticateUser(@FormParam("login") String login, @FormParam("password") String password) {
+	public Response authenticateUser(String usuario) {
 
 		try {
-			// Authenticate the user using the credentials provided
+			JSONObject jo = (JSONObject) new JSONParser().parse(usuario); 
+	          
+	        String login = jo.get("login").toString();
+	        String senha = jo.get("senha").toString();
+	        
 			Login loginbean = ClientUtility.getLoginBean();
-			User user = loginbean.login(login, PasswordUtils.digestPassword(password));
+			User user = loginbean.login(login, PasswordUtils.digestPassword(senha));
+			
 			if (user == null)
 				throw new SecurityException("Invalid user/password");
 
@@ -55,17 +55,16 @@ public class UserEndpoint {
 			String token = Jwts.builder()
 					.setSubject(login)
 					.claim("custom", "myCustom")
-					.signWith(
-						SignatureAlgorithm.HS256,
-						DatatypeConverter.parseBase64Binary("tmMY7VZuZ1DrsTF8JNImtiZ6Im6nx+2lLMEWhvRHneE=")
-					)
+					.signWith(SignatureAlgorithm.HS256,
+						DatatypeConverter.parseBase64Binary("tmMY7VZuZ1DrsTF8JNImtiZ6Im6nx+2lLMEWhvRHneE="))
 					.compact();
 
 			user.setToken(token);
 			loginbean.updateUser(user);
 			
 			// Return the token on the response
-			return Response.ok().header(AUTHORIZATION, "Bearer " + token).build();
+			return Response.ok().header(AUTHORIZATION, "Bearer " + token)
+					.header("Access-Control-Expose-Headers", "*").build();
 
 		} catch (SecurityException e) {
 			return Response.status(FORBIDDEN).build();
