@@ -21,6 +21,7 @@ import javax.xml.bind.DatatypeConverter;
 
 import br.edu.ifpe.pdsc_modelo.ejb.Login;
 import br.edu.ifpe.pdsc_modelo.entidades.User;
+import br.edu.ifpe.pdsc_modelo.filter.JWTTokenNeeded;
 import br.edu.ifpe.pdsc_modelo.util.ClientUtility;
 import br.edu.ifpe.pdsc_modelo.util.PasswordUtils;
 import io.jsonwebtoken.Jwts;
@@ -78,7 +79,7 @@ public class UserEndpoint {
 	@POST
 	public Response create(String usuario) {
 		try {
-	        JSONObject jo = (JSONObject) new JSONParser().parse(usuario); 
+			JSONObject jo = (JSONObject) new JSONParser().parse(usuario); 
 	          
 	        String nome = jo.get("nome").toString();
 	        String senha = jo.get("senha").toString();
@@ -97,6 +98,7 @@ public class UserEndpoint {
 	}
 
 	@GET
+	@JWTTokenNeeded
 	@Path("/{id}")
 	public Response findById(@PathParam("id") int id) {
 		try {
@@ -111,6 +113,7 @@ public class UserEndpoint {
 	}
 
 	@GET
+	@JWTTokenNeeded
 	public Response findAllUsers() {
 		try {
 			Login loginbean = ClientUtility.getLoginBean();
