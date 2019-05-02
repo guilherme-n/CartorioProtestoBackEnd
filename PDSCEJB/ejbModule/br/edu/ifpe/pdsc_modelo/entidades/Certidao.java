@@ -1,0 +1,36 @@
+package br.edu.ifpe.pdsc_modelo.entidades;
+
+import java.sql.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "certidao", catalog = "CartorioProtesto")
+public class Certidao {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id", nullable = false)
+	private int id;
+	
+	@ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "pessoa_id")
+	private Pessoa pessoa;
+	
+	@Column(name = "data")
+	private Date data;
+	
+	@Column(name = "periodo_busca")
+	private String periodoBusca;
+	
+	@Column(name = "valor")
+	private double valor;
+}

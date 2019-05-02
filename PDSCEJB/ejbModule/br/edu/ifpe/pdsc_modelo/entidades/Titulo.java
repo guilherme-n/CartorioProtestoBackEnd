@@ -4,9 +4,12 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -22,11 +25,33 @@ public class Titulo implements Serializable {
 
 	@Column(name = "descricao", nullable = false)
 	private String descricao;
-
 	
 	@Column(name = "valor", nullable = false)
 	private double valor;
-
+	
+	@Column(name = "data_cadastro", nullable = false)
+	private double dataCadastro;
+	
+	@OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "credor_id")
+	private Pessoa credor;
+	
+	@OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "devedor_id")
+	private Pessoa devedor;
+	
+	@OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "intimacao_id")
+	private Intimacao intimacao;
+	
+	@OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "protesto_id")
+	private Protesto protesto;
+	
+	@OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "pagamento_id")
+	private Pagamento pagamento;
+	
 
 	public int getId() {
 		return id;
