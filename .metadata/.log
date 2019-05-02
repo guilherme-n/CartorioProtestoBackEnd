@@ -2490,3 +2490,8 @@ Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.eclipse.
 !MESSAGE No repository found containing: osgi.bundle,org.eclipse.epp.mpc.ui.css,1.7.6.v20190415-1216
 !SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2019-05-02 20:27:01.301
 !MESSAGE No repository found containing: org.eclipse.update.feature,org.eclipse.epp.mpc,1.7.6.v20190416-1746
+
+!ENTRY org.eclipse.core.resources 2 2 2019-05-02 20:41:38.670
+!MESSAGE Save operation warnings.
+!SUBENTRY 1 org.eclipse.core.resources 2 234 2019-05-02 20:41:38.670
+!MESSAGE The project description file (.project) for 'PDSCEJBEAR' was missing.  This file contains important information about the project.  A new project description file has been created, but some information about the project may have been lost.
